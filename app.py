@@ -1,5 +1,9 @@
 from flask import Flask, jsonify
 from config import Config
+from dotenv import load_dotenv
+import os
+
+load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), '.env'))
 
 def create_app():
     app = Flask(__name__)
