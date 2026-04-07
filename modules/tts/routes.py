@@ -3,9 +3,11 @@ from .logic import generate_voice_stream
 
 tts_bp = Blueprint("tts", __name__, template_folder="templates")
 
-@tts_bp.route("/tts")
+
+@tts_bp.route("/")
 def tts_ui():
-    return render_template("tts.html")
+    return render_template("index.html")
+
 
 @tts_bp.route("/generate-voice", methods=["POST"])
 def generate_voice():

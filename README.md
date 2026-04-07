@@ -12,7 +12,7 @@ Built with a clean monolithic structure (no database), this is a perfect starter
 * 🧠 Tone customization via natural instructions (e.g., “sound terrifying”)
 * 🎧 Multiple voices: Coral, River, Shimmer, Onyx, etc.
 * ⚡ Fast streaming audio generation
-* 📅 Saves output as `.mp3` files in `static/audio/`
+* 📅 Saves output as `.mp3` files in `instance/audio/`
 * 🧱 Modular monolithic Flask structure
 * 🔓 No database or auth required (MVP-friendly)
 * 🧑‍💻 Simple HTML + JS frontend # Update
@@ -33,9 +33,8 @@ weyoto-voice/
 │       ├── routes.py         # Flask routes for UI & API
 │       └── templates/
 │           └── index.html    # Basic frontend UI
-├── app/
-│   └── static/  
-            └── audio/       # Saved MP3 files
+├── instance/
+│   └── audio/               # Generated MP3 files (runtime only)
 ├── requirements.txt
 ├── .gitignore
 └── README.md
@@ -108,7 +107,7 @@ Response: downloadable MP3 file of the voiceover.
 ## 📦 Deployment Notes
 
 * Compatible with [Render](https://render.com), [Railway](https://railway.app), or any VPS
-* MP3 files are stored locally in `static/audio/` — consider cleanup or time-based deletion
+* MP3 files are stored locally in `instance/audio/` — consider cleanup or time-based deletion
 * Optional enhancements include:
 
   * Adding Tailwind for styling

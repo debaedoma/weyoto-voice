@@ -1,14 +1,15 @@
 from openai import OpenAI
+from flask import current_app
 from pathlib import Path
 import uuid
-import os
 
 client = OpenAI()  # Reads OPENAI_API_KEY from env
 
+
 def generate_voice_stream(text, voice, instructions):
     filename = f"{uuid.uuid4()}.mp3"
-    output_dir = Path("app/static/audio") / filename
-    output_dir.mkdir(parents=True, exist_ok=True)  # ✅ Ensure folder exists
+    output_dir = Path(current_app.config["AUDIO_STORAGE_DIR"])
+    output_dir.mkdir(parents=True, exist_ok=True)
 
     output_path = output_dir / filename
 
