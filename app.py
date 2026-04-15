@@ -11,8 +11,12 @@ def create_app():
 
     # Register Blueprints
     from modules.tts.routes import tts_bp
+    from modules.tts.store import initialize_database
 
-    app.register_blueprint(tts_bp, url_prefix="/tts")
+    app.register_blueprint(tts_bp)
+
+    with app.app_context():
+        initialize_database()
 
 
     # Root endpoint
