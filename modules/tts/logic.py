@@ -32,21 +32,21 @@ VOICE_CATALOG = {
     "shes_her": {"label": "She's Her", "provider_voice": "coral"},
     "lara_croft": {"label": "Lara Croft", "provider_voice": "sage"},
     "british_prince": {"label": "British Prince", "provider_voice": "ballad"},
-    "ballad_prince": {"label": "Ballad Prince", "provider_voice": "ballad"},
+    # "ballad_prince": {"label": "Ballad Prince", "provider_voice": "ballad"},
 }
 
 SUPPORTED_PROVIDER_VOICES = {
-    "alloy",
+   # "alloy",
     "ash",
     "ballad",
     "coral",
-    "echo",
-    "fable",
-    "nova",
-    "onyx",
-    "river",
+   # "echo",
+   # "fable",
+   # "nova",
+   # "onyx",
+   # "river",
     "sage",
-    "shimmer",
+   # "shimmer",
 }
 
 
@@ -119,7 +119,7 @@ def process_generation_request(data):
     max_fine_tune_words = current_app.config["MAX_FINE_TUNE_WORDS"]
 
     if word_count == 0:
-        raise GenerationValidationError("Text is required")
+        raise GenerationValidationError("Enter text to create voice")
 
     if word_count > max_words:
         raise GenerationValidationError(f"Text exceeds {max_words} words")

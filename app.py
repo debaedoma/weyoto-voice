@@ -1,4 +1,5 @@
 from flask import Flask, jsonify
+from flask_cors import CORS
 from config import Config
 from dotenv import load_dotenv
 import os
@@ -8,6 +9,9 @@ load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), '.env'))
 def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
+
+    # Enable CORS for the frontend dev server
+    CORS(app, resources={r"/*": {"origins": ["http://localhost:3000", "http://localhost:3001"]}})
 
     # Register Blueprints
     from modules.tts.routes import tts_bp
@@ -29,6 +33,3 @@ def create_app():
 if __name__ == "__main__":
     app = create_app()
     app.run(debug=Config.DEBUG)
-
-
-
